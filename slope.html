@@ -1,135 +1,119 @@
-<html lang="en-us"><head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Slope</title>
-	<style>
+<html lang="en"><head><title>Play Slope Game Game Online !</title><meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noodp, noydir"><meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no, minimal-ui"><meta http-equiv="X-UA-Compatible" content="requiresActiveX=true,IE=Edge,chrome=1"><meta http-equiv="Content-Language" content="en-US"><style>* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+		}
+
 		html,
 		body {
-			background: #000;
-			width: 100%;
-			height: 100%;
-			overflow: visible;
-			padding: 0;
-			margin: 0;
-		}
-
-		div#gameContainer {
-			background: transparent !important;
-			position: absolute;
-		}
-
-		div#gameContainer canvas {
-			position: absolute;
-		}
-
-		div#gameContainer canvas[data-pixel-art="true"] {
-			position: absolute;
-			image-rendering: optimizeSpeed;
-			image-rendering: -webkit-crisp-edges;
-			image-rendering: -moz-crisp-edges;
-			image-rendering: -o-crisp-edges;
-			image-rendering: crisp-edges;
-			image-rendering: -webkit-optimize-contrast;
-			image-rendering: optimize-contrast;
-			image-rendering: pixelated;
-			-ms-interpolation-mode: nearest-neighbor;
-		}
-		
-	    #unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: block }
-		#unity-logo {width: 154px; height: 130px; background: url('TemplateData/unity-logo-dark.png') no-repeat center }
-        #unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; background: url('TemplateData/progress-bar-empty-dark.png') no-repeat center }
-        #unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('TemplateData/progress-bar-full-dark.png') no-repeat center }
-		
-	</style>
-<script id="id-jssdk" src="https://cdn.y8.com/api/sdk.js"></script><script src="https://img.y8.com/prevent-keys.js"></script><script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script></head>
-
-<body>
-	<div id="gameContainer" style="width: 872px; height: 545px; top: 0px; left: 34px;">
-		<canvas id="unity-canvas" data-pixel-art="" width="1090" height="681" style="width: 872px; height: 545px; cursor: default;"></canvas>
-		  <div id="unity-loading-bar" style="display: none;">
-          <div id="unity-logo" style="left: 359px; top: 138px;"></div>
-          <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full" style="width: 100%;"></div>
-          </div>
-
-		<script src="Build/output_2022_version.loader.js"></script>
-		<script>
-			var loadingBar = document.querySelector("#unity-loading-bar");
-			var progressBarFull = document.querySelector("#unity-progress-bar-full");
-			var canvas = document.querySelector("#unity-canvas");
-			var logo = document.querySelector("#unity-logo");
-			var config = {
-				dataUrl: "Build/output_2022_version.data.gz",
-				frameworkUrl: "Build/output_2022_version.framework.js.gz",
-				codeUrl: "Build/output_2022_version.wasm.gz",
-				streamingAssetsUrl: "StreamingAssets",
-				companyName: "Y8",
-				productName: "Slope",
-				productVersion: "1.3",
-			};
-			var scaleToFit;
-			try {
-				scaleToFit = !!JSON.parse("");
-			} catch (e) {
-				scaleToFit = true;
+			background-color: rgba(0, 0, 0, 0.4);
+		}</style></head><body id="run_IFRAME_HTML"><style>.before-playing {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: #16181e;
 			}
-			function progressHandler(progress) {
-				var percent = progress * 100 + '%';
-				progressBarFull.style.width = percent;
+
+			.blur-background {
+				background-image: url('/data/image/game/slope-game.png');
+				background-repeat: no-repeat;
+				position: absolute;
+				background-size: cover;
+				background-position: 50%;
+				filter: blur(12px);
+				opacity: .7;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
 			}
-			function onResize() {
-				var container = canvas.parentElement;
-				var w;
-				var h;
 
-				if (scaleToFit) {
-					w = window.innerWidth;
-					h = window.innerHeight;
+			.preload-before-playing {
+				padding: 20px 30px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				flex-direction: column;
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+				max-width: 800px;
+				margin: 0 auto;
+			}
 
-					console.log("w " + w);
-					console.log("h " + h);
-					var isMobileOrTablet = /Mobi|Android|iPhone|iPad|iPod|Tablet|Silk/i.test(navigator.userAgent);
-					console.log("isMobileOrTablet " + isMobileOrTablet);
-					var r = isMobileOrTablet ? window.innerHeight / window.innerWidth : 600 / 960;
-					console.log("r " + r);
+			.image-thumbnail-playing img {
+				box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+				
+				border-radius: 16px;
+			}
 
-					if (w * r > window.innerHeight) {
-						w = Math.min(w, Math.ceil(h / r));
-					}
-					h = Math.floor(w * r);
-				} else {
-					w = 960;
-					h = 600;
+			.title-game-playing span {
+				min-width: 160px;
+				border-radius: 40px;
+				text-transform: uppercase;
+				padding: 20px 40px;
+				margin-top: 20px;
+				cursor: pointer;
+				color: #000;
+				animation: crunch 600ms infinite ease;
+				text-align: center;
+				display: block;
+				font-size: 20px;
+				font-weight: bold;
+				font-family: system-ui;
+				letter-spacing: 1px;
+				border: 1px solid rgba(0, 0, 0, 0.1);
+				box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.21);
+				background-color: #00ff4cd4;
+				display: flex;
+				align-items: center;
+				gap: 3px;
+			}
+
+			.title-game-playing span:hover {
+				background-color: #01fd04;
+			}
+
+			@keyframes crunch {
+				0% {
+					transform: rotate(-2deg) scale(0.98);
 				}
 
-				container.style.width = canvas.style.width = w + "px";
-				container.style.height = canvas.style.height = h + "px";
-				container.style.top = Math.floor((window.innerHeight - h) / 2) + "px";
-				container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
-				logo.style.left = Math.floor((w - 154) / 2) + "px"; // 154 is the width of the logo
-				logo.style.top = Math.floor((h - 130) / 3) + "px";  // 130 is the height of the logo, divided by 3 for 33
-			}
-			var myGameInstance = null;
-			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
-				loadingBar.style.display = 'none';
-				myGameInstance = instance;
-				canvas = instance.Module.canvas;
-				onResize();
-			});
-			window.addEventListener('resize', onResize);
-			onResize();
+				50% {
+					transform: rotate(2deg) scale(1.02);
+				}
 
-			if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-				// Mobile device style: fill the whole browser client area with the game canvas:
-				const meta = document.createElement('meta');
-				meta.name = 'viewport';
-				meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-				document.getElementsByTagName('head')[0].appendChild(meta);
-			}
-		</script>
-		<script type="text/javascript" src="TemplateData/gameBreakBeta.js"></script>
-	</div>
-
-
-
-</div><script src="Build/output_2022_version.framework.js.gz"></script><div id="id-root" class="id-reset"></div><iframe name="easyXDM_id_xd_api_provider" title="easyXDM_id_xd_api_provider" id="easyXDM_id_xd_api_provider" src="https://cdn.y8.com/Xd/xd_handler.html?version=44&amp;xdm_e=https%3A%2F%2Fstorage.y8.com&amp;xdm_c=id_xd_api&amp;xdm_p=1" frameborder="0" style="position: absolute; top: -2000px; left: 0px;"></iframe></body></html>
+				100% {
+					transform: rotate(-2deg) scale(1);
+				}
+			}</style><script>async function start_game_frame() {
+				//let frame_game = '<iframe id="iframehtml5" width="100%" height="100%" src="https://slopegamefree.github.io/slope/" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen></iframe>';
+				let frame_game = document.createElement('iframe');
+				frame_game.setAttribute('id', 'iframehtml5');
+				frame_game.setAttribute('width', '100%');
+				frame_game.setAttribute('height', '100%');
+				frame_game.setAttribute('frameborder', '0');
+				frame_game.setAttribute('border', '0');
+				frame_game.setAttribute('scrolling', 'no');
+				frame_game.setAttribute('class', 'iframe-default');
+				frame_game.setAttribute('allowfullscreen', 'true');
+				frame_game.setAttribute('src', 'https://slopegamefree.github.io/slope/');
+				if (document.getElementById("preloading-game")) {
+					await document.getElementById("preloading-game").remove();
+				}
+				document.body.append(frame_game);
+				frame_game.focus();
+				fetch("/count.ajax?id=1")
+				// frame_game.onload = () => {
+				 // window.addEventListener("keyup", frame_game.contentWindow.onGameKeyUp);
+				 // window.addEventListener("keydown", frame_game.contentWindow.onGameKeyDown);
+				// };
+			}</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;19f8262109f54b979bc8be5da9bfe872&quot;,&quot;r&quot;:1}" crossorigin="anonymous"></script>
+<iframe id="iframehtml5" width="100%" height="100%" frameborder="0" border="0" scrolling="no" class="iframe-default" allowfullscreen="true" src="https://slopegamefree.github.io/slope/"></iframe></body></html>
